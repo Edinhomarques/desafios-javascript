@@ -91,28 +91,5 @@ const normalizeData = unormalized => {
  
 }
 
-// const response = normalizeData({
-//     id: '3942-2e728ce88125-11ea-a137-a98dy12uhd',
-//     user: {
-//       id: '90013adv',
-//       name: 'Milson',
-//     },
-//     reports: [
-//       {
-//         id: '512dg5f1a9',
-//         result: {
-//           document: '356.4325-10',
-//           status: 'em análise',
-//         },
-//       },
-//       {
-//         id: '01223saf',
-//         result: {
-//           document: '123.09312-99',
-//           status: 'concluido',
-//         },
-//       },
-//     ],
-//   })
 
 module.exports = normalizeData

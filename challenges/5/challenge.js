@@ -49,19 +49,20 @@ const doRequest = () => {
     }).catch(() => setError(true))
 
 }
-const doRequestWithAsyncAwait = async () => {
-    setLoading(true)
-    try {
-        const response = await api();
-        setData(response)
-        setLoading(false)
-        setError(false)
+// Usando async Await
+// const doRequestWithAsyncAwait = async () => {
+//     setLoading(true)
+//     try {
+//         const response = await api();
+//         setData(response)
+//         setLoading(false)
+//         setError(false)
         
-    } catch (error) {
-        setError(true)
+//     } catch (error) {
+//         setError(true)
         
-    }
+//     }
 
-}
-doRequestWithAsyncAwait()
+// }
+// doRequestWithAsyncAwait()
 module.exports = doRequest
