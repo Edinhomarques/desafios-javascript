@@ -50,8 +50,69 @@
  *      }
  *    }
  *  }
+ * 
+ * Solução
+ *  1°) Primeiro criei o primeiro nivel das propriedas do obj
+ *  .results, .users, .reports e depois fui preenchendo cada uma das props pedidas
+ *  No caso dos reports como temos um array usei o Object.values no normalize.reports
+ * pra poder pegar os values do objet e interar sobre ele pra montar o reports normalizado 
  */
 
-const normalizeData = unormalized => {}
+const normalizeData = unormalized => {
+    
+    let normalizeObj = {};
+    
+    normalizeObj.results = {
+        [unormalized.id]: {
+            id: unormalized.id,
+            user: unormalized.user.id,
+            reports: Object.values(unormalized.reports).map(item => item.id)
+        } 
+    }
+
+    normalizeObj.users = {
+        [unormalized.user.id]: unormalized.user
+    }
+
+    Object.values(unormalized.reports).forEach( report => {
+        normalizeObj.reports = {
+            ...obj.reports,
+            [report.id]: {
+                id: report.id,
+                user: unormalized.user.id,
+                document: report.result.document,
+                status: report.result.status
+            }
+        }
+
+    })
+
+    return obj
+ 
+}
+
+// const response = normalizeData({
+//     id: '3942-2e728ce88125-11ea-a137-a98dy12uhd',
+//     user: {
+//       id: '90013adv',
+//       name: 'Milson',
+//     },
+//     reports: [
+//       {
+//         id: '512dg5f1a9',
+//         result: {
+//           document: '356.4325-10',
+//           status: 'em análise',
+//         },
+//       },
+//       {
+//         id: '01223saf',
+//         result: {
+//           document: '123.09312-99',
+//           status: 'concluido',
+//         },
+//       },
+//     ],
+//   })
 
 module.exports = normalizeData
