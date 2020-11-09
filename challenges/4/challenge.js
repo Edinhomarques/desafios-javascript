@@ -76,7 +76,7 @@ const normalizeData = unormalized => {
 
     Object.values(unormalized.reports).forEach( report => {
         normalizeObj.reports = {
-            ...obj.reports,
+            ...normalizeObj.reports,
             [report.id]: {
                 id: report.id,
                 user: unormalized.user.id,
@@ -87,7 +87,7 @@ const normalizeData = unormalized => {
 
     })
 
-    return obj
+    return normalizeObj
  
 }
 
