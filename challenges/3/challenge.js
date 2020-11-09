@@ -18,15 +18,14 @@
  */
 
 const MDC = (a, b) => {
-    let resto;
-    console.log(`A=${a}, B=${b}`)
+    let restOfDivision;
     do {
-        resto = a % b;
+        restOfDivision = a % b;
 
         a = b;
-        b = resto;
+        b = restOfDivision;
 
-    } while (resto != 0);
+    } while (restOfDivision != 0);
 
     return a;
 }
