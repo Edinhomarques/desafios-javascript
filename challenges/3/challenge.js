@@ -17,6 +17,19 @@
  * a > b sempre.
  */
 
-const MDC = (a, b) => {}
+const MDC = (a, b) => {
+    let resto;
+    console.log(`A=${a}, B=${b}`)
+    do {
+        resto = a % b;
+
+        a = b;
+        b = resto;
+
+    } while (resto != 0);
+
+    return a;
+}
+// console.log(MDC(12, 18))
 
 module.exports = MDC
